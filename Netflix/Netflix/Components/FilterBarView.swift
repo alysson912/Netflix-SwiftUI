@@ -2,7 +2,7 @@
 //  FilterBarView.swift
 //  Netflix
 //
-//  Created by ALYSSON MENEZES on 14/08/25.
+//  Created by ALYSSON MENEZES on 20/08/25.
 //
 
 import SwiftUI
@@ -15,7 +15,7 @@ struct FilterModel: Hashable, Equatable {
         [
             FilterModel(title: "TV Shows", isDropdown: false),
             FilterModel(title: "Movies", isDropdown: false),
-            FilterModel(title: "Categories", isDropdown: true)
+            FilterModel(title: "Categories", isDropdown: true),
         ]
     }
 }
@@ -23,9 +23,9 @@ struct FilterModel: Hashable, Equatable {
 struct FilterBarView: View {
     
     var filters: [FilterModel] = FilterModel.mockArray
-    var onXMarkPressed: (() -> Void)? = nil
-    var onFilterPressed: ((FilterModel) -> Void)? = nil
     var selectedFilter: FilterModel? = nil
+    var onFilterPressed: ((FilterModel) -> Void)? = nil
+    var onXMarkPressed: (() -> Void)? = nil
     
     var body: some View {
         ScrollView(.horizontal) {
@@ -42,7 +42,6 @@ struct FilterBarView: View {
                         .onTapGesture {
                             onXMarkPressed?()
                         }
-                    
                         .transition(AnyTransition.move(edge: .leading))
                         .padding(.leading, 16)
                 }
@@ -51,14 +50,14 @@ struct FilterBarView: View {
                     if selectedFilter == nil || selectedFilter == filter {
                         FilterCell(
                             title: filter.title,
-                            isDropDown: filter.isDropdown,
+                            isDropdown: filter.isDropdown,
                             isSelected: selectedFilter == filter
                         )
                         .background(Color.black.opacity(0.001))
                         .onTapGesture {
-                            onFilterPressed? (filter)
+                            onFilterPressed?(filter)
                         }
-                        .padding(.leading, ((selectedFilter == nil) && filter == filters.first) ? 16 : 0 )
+                        .padding(.leading, ((selectedFilter == nil) && filter == filters.first) ? 16 : 0)
                     }
                 }
             }
@@ -69,29 +68,28 @@ struct FilterBarView: View {
     }
 }
 
-fileprivate struct FilterBarViewPreview: View {
+fileprivate struct NetflixFilterBarViewPreview: View {
+    
     @State private var filters = FilterModel.mockArray
     @State private var selectedFilter: FilterModel? = nil
     
     var body: some View {
         FilterBarView(
             filters: filters,
-            onXMarkPressed: {
-                selectedFilter = nil
-            },
+            selectedFilter: selectedFilter,
             onFilterPressed: { newFilter in
                 selectedFilter = newFilter
             },
-            selectedFilter: selectedFilter)
+            onXMarkPressed: {
+                selectedFilter = nil
+            }
+        )
     }
 }
 
 #Preview {
     ZStack {
-        
         Color.black.ignoresSafeArea()
-        
-        FilterBarViewPreview()
-        
+        NetflixFilterBarViewPreview()
     }
 }

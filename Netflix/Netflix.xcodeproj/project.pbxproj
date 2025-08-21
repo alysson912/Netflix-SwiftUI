@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B053CB92E4D374D006F307A /* SwiftfulRouting in Frameworks */ = {isa = PBXBuildFile; productRef = 4B053CB82E4D374D006F307A /* SwiftfulRouting */; };
 		4B053CBC2E4D3767006F307A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4B053CBB2E4D3767006F307A /* SDWebImageSwiftUI */; };
+		4BB5A3DB2E5669B1004728B8 /* SwiftfulUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB5A3DA2E5669B1004728B8 /* SwiftfulUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB5A3DB2E5669B1004728B8 /* SwiftfulUI in Frameworks */,
 				4B053CBC2E4D3767006F307A /* SDWebImageSwiftUI in Frameworks */,
 				4B053CB92E4D374D006F307A /* SwiftfulRouting in Frameworks */,
 			);
@@ -74,6 +76,7 @@
 			packageProductDependencies = (
 				4B053CB82E4D374D006F307A /* SwiftfulRouting */,
 				4B053CBB2E4D3767006F307A /* SDWebImageSwiftUI */,
+				4BB5A3DA2E5669B1004728B8 /* SwiftfulUI */,
 			);
 			productName = Netflix;
 			productReference = 4B053C7A2E4D3543006F307A /* Netflix.app */;
@@ -106,6 +109,7 @@
 			packageReferences = (
 				4B053CB72E4D374D006F307A /* XCRemoteSwiftPackageReference "SwiftfulRouting" */,
 				4B053CBA2E4D3767006F307A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				4BB5A3D92E5669B1004728B8 /* XCRemoteSwiftPackageReference "SwiftfulUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4B053C7B2E4D3543006F307A /* Products */;
@@ -355,6 +359,14 @@
 				minimumVersion = 3.1.3;
 			};
 		};
+		4BB5A3D92E5669B1004728B8 /* XCRemoteSwiftPackageReference "SwiftfulUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -367,6 +379,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4B053CBA2E4D3767006F307A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		4BB5A3DA2E5669B1004728B8 /* SwiftfulUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB5A3D92E5669B1004728B8 /* XCRemoteSwiftPackageReference "SwiftfulUI" */;
+			productName = SwiftfulUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
